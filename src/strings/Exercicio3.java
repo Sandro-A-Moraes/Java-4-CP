@@ -22,7 +22,16 @@ Retorne:
  */
 
 public int compareVersion(String version1, String version2){
+    String[] newVersion1 = version1.split("\\.");//
+    String[] newVersion2 = version2.split("\\.");
 
+    IO.println(Arrays.toString(newVersion1));
+    IO.println(Arrays.toString(newVersion2));
+
+    for(int i =0; i < newVersion1.length; i++){
+
+    }
+    return 0;
 }
 
 
