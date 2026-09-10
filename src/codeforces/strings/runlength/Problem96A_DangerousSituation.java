@@ -1,7 +1,7 @@
-package codeforces;
+package codeforces.strings.runlength;
 import java.util.Scanner;
 
-public class Problem96A{
+public class Problem96A_DangerousSituation {
     void main(){
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
