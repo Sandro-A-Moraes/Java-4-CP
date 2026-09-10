@@ -39,37 +39,21 @@ public String normalizeIdentifier(String s) {
  */
 
 public String normalizeIdentifier(String s){
-     char[] characters = s.strip().toLowerCase().toCharArray();
-     StringBuilder newString = new StringBuilder();
+    StringBuilder result = new StringBuilder();
 
+    for(char c : s.toCharArray()){
+        if(Character.isLetterOrDigit(c)){
+            result.append(Character.toLowerCase(c));
+        } else if(!result.isEmpty() && result.charAt(result.length() - 1) != '_'){
+            result.append('_');
+        }
+    }
 
-     for(int i = 0; i< characters.length; i++){
-          char currentChar = characters[i];
+    if(!result.isEmpty() && result.charAt(result.length() - 1) == '_'){
+        result.deleteCharAt(result.length() - 1);
+    }
 
-          if(!Character.isLetterOrDigit(currentChar)){
-               characters[i] = '_';
-
-               if(i>= 1 && !Character.isLetterOrDigit(characters[i - 1])){
-                    continue;
-               }
-          }
-          newString.append(characters[i]);
-
-     }
-
-     if (newString.charAt(0) == '_') {
-          newString.deleteCharAt(0);
-     }
-
-     if(newString.isEmpty()){
-          return "";
-     }
-
-     if(newString.charAt(newString.length() - 1) == '_'){
-          newString.deleteCharAt(newString.length() - 1);
-     }
-
-     return newString.toString();
+    return result.toString();
 }
 
 void main(){

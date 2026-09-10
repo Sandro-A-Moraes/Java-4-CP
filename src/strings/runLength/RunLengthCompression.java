@@ -13,10 +13,9 @@ Para cada grupo consecutivo:
 
 - se aparecer mais de uma vez, escreva o caractere seguido da quantidade.
  */
+/* Resposta
 
-
-public String compress(String s){
-    StringBuilder result = new StringBuilder();
+StringBuilder result = new StringBuilder();
     char currentGroup =  s.charAt(0);
     int count = 1;
 
@@ -37,7 +36,30 @@ public String compress(String s){
     if(count > 1) result.append(count);
 
     return result.toString();
+ */
 
+public String compress(String s){
+   char currentGroup = s.charAt(0);
+   int count = 1;
+   StringBuilder newString = new StringBuilder();
+
+   for(int i = 1; i < s.length(); i++){
+       if(s.charAt(i) == currentGroup){
+           count++;
+       } else{
+           newString.append(currentGroup);
+           if(count > 1){
+               newString.append(count);
+           }
+           currentGroup = s.charAt(i);
+           count = 1;
+       }
+   }
+
+   newString.append(currentGroup);
+   if(count>1) newString.append(count);
+
+   return newString.toString();
 }
 
 void main(){
