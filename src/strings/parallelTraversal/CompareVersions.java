@@ -21,7 +21,6 @@ Retorne:
 
  */
 
-/*
 public int compareVersion(String version1, String version2) {
     String[] v1 = version1.split("\\.");
     String[] v2 = version2.split("\\.");
@@ -45,54 +44,6 @@ public int compareVersion(String version1, String version2) {
 }
 
 void main() {
-    String version1 = IO.readln();
-    String version2 = IO.readln();
-
-    IO.println(compareVersion(version1, version2));
-}
- */
-
-public int compareVersion(String version1, String version2){
-    String[] v1 = version1.split("\\.");
-    String[] v2 = version2.split("\\.");
-    int comparison = 0;
-    int greaterQuantity = 0;
-
-    if(Integer.parseInt(v1[0]) > Integer.parseInt(v2[0])){
-        return 1;
-    } else if(Integer.parseInt(v1[0]) < Integer.parseInt(v2[0])){
-        return -1;
-    }
-
-    if(v1.length > v2.length){
-        greaterQuantity = v1.length;
-    } else{
-        greaterQuantity = v2.length;
-
-    }
-
-    for(int i = 1; i < greaterQuantity; i++){
-        int n1;
-        int n2;
-
-        if (i < v1.length) {
-            n1 = Integer.parseInt(v1[i]);
-        } else {
-            n1 = 0;
-        }
-
-        if (i < v2.length) {
-            n2 = Integer.parseInt(v2[i]);
-        } else {
-            n2 = 0;
-        }
-    }
-
-    return comparison;
-}
-
-
-void main(){
     String version1 = IO.readln();
     String version2 = IO.readln();
 
